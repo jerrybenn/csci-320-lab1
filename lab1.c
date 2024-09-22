@@ -12,6 +12,18 @@
  */
 char* readString(char* fileName){
     //TODO: Replace this line with your code
+    FILE* file = fopen(fileName, "r");
+
+    char* buffer = (char*)malloc(100 * sizeof (char));
+
+    fgets(buffer, 100, file);
+
+    buffer[strcspn(buffer,"\n")] = '\0';
+
+    fclose(file);
+
+    return buffer;
+
 }
 
 /*
